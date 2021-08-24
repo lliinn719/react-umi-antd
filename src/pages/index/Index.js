@@ -2,9 +2,8 @@
 import React, { Component } from 'react';
 import { connect } from 'dva';
 import './Index.less';
-import { Row, Col } from 'antd';
+import { Layout, Row, Col } from 'antd';
 import images from '../../theme/images';
-import Layout from 'antd/lib/layout/layout';
 
 const mapStateToProps = state => {
   return {};
