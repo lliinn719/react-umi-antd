@@ -1,7 +1,7 @@
 const theme = require('../theme');
 
 export default {
-  history: 'hash',
+  history: 'browser',
   treeShaking: true,
   define: {
     'process.env.API_PROTOCOL': process.env.API_PROTOCOL,
@@ -13,12 +13,16 @@ export default {
     {
       path: '/login',
       component: '../layouts/GlobalLayout',
-      routes: [{ path: '/login', component: '../pages/login/Login', exact: true }],
+      routes: [
+        { path: '/login', component: '../pages/login/Login', exact: true }
+      ],
     },
     {
       path: '/',
       component: '../layouts/GlobalLayout',
-      routes: [{ path: '/', component: '../pages/index/Index', exact: true }],
+      routes: [
+        { path: '/', component: '../pages/index', exact: true }
+      ],
     },
   ],
 

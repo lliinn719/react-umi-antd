@@ -6,27 +6,11 @@ import { Input } from 'antd';
 import images from '../../theme/images';
 import Layout from 'antd/lib/layout/layout';
 
-const mapStateToProps = state => {
-  return {};
-};
 
-const mapDispatchToProps = dispatch => {
-  return {};
-};
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(
-  class Input extends Component {
-    render() {
-      return (
-        <Layout>
-          <div>
-            <Input />
-          </div>
-        </Layout>
-      );
-    }
-  },
-);
+export default class InputComponent extends Component {
+  render() {
+    return (
+      <Input />
+    );
+  }
+}

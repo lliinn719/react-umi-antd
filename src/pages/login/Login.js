@@ -4,8 +4,8 @@ import { connect } from 'dva';
 import './Login.less';
 import { Row, Col } from 'antd';
 import images from '../../theme/images';
-import Layout from 'antd/lib/layout/layout';
-import Input from '../../components/input/input';
+import { Layout } from 'antd';
+import InputComponent from '../../components/input/input';
 
 const mapStateToProps = state => {
   return {};
@@ -26,7 +26,7 @@ export default connect(
           <div>
             <Row>
               <Col xs={{ span: 24 }} sm={{ span: 12 }}>
-                <Input />
+                <InputComponent />
               </Col>
               <Col xs={{ span: 24 }} sm={{ span: 12 }}>
                 <img src={images.login} className="login"></img>
