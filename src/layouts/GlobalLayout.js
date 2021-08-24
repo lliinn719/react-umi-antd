@@ -1,16 +1,21 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable jsx-a11y/alt-text */
 import React, { Component } from 'react';
 import withRouter from 'umi/withRouter';
 import { connect } from 'dva';
-import { Layout, Menu, Breadcrumb } from 'antd';
+import { Layout, Menu } from 'antd';
 import './GlobalLayout.less';
+import images from '../theme/images';
+import { UserOutlined } from '@ant-design/icons';
+import { Link } from 'react-router-dom';
 
 const { Header, Content, Footer } = Layout;
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {};
 };
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
   return {
     goToRoute(path, callback) {
       dispatch({ type: 'global/goToRoute', path, callback });
@@ -24,46 +29,55 @@ export default withRouter(
     mapDispatchToProps,
   )(
     class GlobalLayout extends Component {
-      state = {
-        isMobile: false,
-      };
+      state = {};
 
-      componentDidMount = () => {
-        this.handleCheckIsMobile();
-
-        window.addEventListener('resize', this.handleCheckIsMobile);
-        return () => {
-          window.removeEventListener('resize', this.handleCheckIsMobile);
-        };
-      };
-
-      handleCheckIsMobile = () => {
-        if (window.screen.width > 768) this.setState({ isMobile: false });
-        else this.setState({ isMobile: true });
-      };
+      componentDidMount = () => {};
 
       render() {
         const { children } = this.props;
-
         return (
           <Layout className="global-layout">
-            <Header className='header'>
-              <div className="logo" />
-              <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']}>
-                <Menu.Item key="1">nav 1</Menu.Item>
-                <Menu.Item key="2">nav 2</Menu.Item>
-                <Menu.Item key="3">nav 3</Menu.Item>
+            <Header>
+              <Menu mode="horizontal">
+                <Menu.Item key="logo">
+                  <div className="logoBlock">
+                    <img src={images.logo} className="logo"></img>
+                    <h3 className="title">Baby Journal</h3>
+                  </div>
+                </Menu.Item>
+                <Menu.Item key="babyList">
+                  <h4 className="navbarText">寶寶列表</h4>
+                </Menu.Item>
+                <Menu.Item key="functionList">
+                  <h4 className="navbarText">功能列表</h4>
+                </Menu.Item>
+                <Menu.Item key="contactBook">
+                  <h4 className="navbarText">聯絡簿</h4>
+                </Menu.Item>
+                <Menu.Item key="noviceTeaching">
+                  <h4 className="navbarText">新手教學</h4>
+                </Menu.Item>
+                <Menu.Item key="contactUs">
+                  <h4 className="navbarText">聯繫我們</h4>
+                </Menu.Item>
+                <Menu.Item key="commonProblem">
+                  <h4 className="navbarText">常見問題</h4>
+                </Menu.Item>
+                <Menu.Item key="userIcon">
+                  <h4 className="navbarText">
+                    <Link to="/login">
+                      <UserOutlined style={{ fontSize: '1.25rem' }} />
+                    </Link>
+                  </h4>
+                </Menu.Item>
               </Menu>
             </Header>
-            <Content  className="content">
-              <Breadcrumb className="breadcrumb">
-                <Breadcrumb.Item>Home</Breadcrumb.Item>
-                <Breadcrumb.Item>List</Breadcrumb.Item>
-                <Breadcrumb.Item>App</Breadcrumb.Item>
-              </Breadcrumb>
-              <div  className="content-child">{children}</div>
-            </Content>
-            <Footer className="footer">Ant Design Template © 2020 Created by carie8655</Footer>
+            {children}
+            <Footer>
+              <div>
+                <h4 className="footerText">@BABY團隊版權所有</h4>
+              </div>
+            </Footer>
           </Layout>
         );
       }

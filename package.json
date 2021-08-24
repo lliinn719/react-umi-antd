@@ -11,7 +11,9 @@
     "precommit": "lint-staged"
   },
   "dependencies": {
-    "@ant-design/icons": "^4.2.2",
+    "@ant-design/icons": "^4.6.3",
+    "@babel/core": "^7.15.0",
+    "@babel/preset-env": "^7.15.0",
     "@umijs/plugin-antd": "^0.8.0",
     "antd": "^4.6.4",
     "cross-env": "^7.0.2",

@@ -11,11 +11,17 @@ export default {
   },
   routes: [
     {
+      path: '/login',
+      component: '../layouts/GlobalLayout',
+      routes: [{ path: '/login', component: '../pages/login/Login', exact: true }],
+    },
+    {
       path: '/',
       component: '../layouts/GlobalLayout',
-      routes: [{ path: '/', component: '../pages/Index', exact: true }],
+      routes: [{ path: '/', component: '../pages/index/Index', exact: true }],
     },
   ],
+
   hash: true,
   theme: theme,
   disableCSSModules: true,
