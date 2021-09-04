@@ -11,18 +11,65 @@ export default {
   },
   routes: [
     {
-      path: '/login',
+      path: '/share',
+      component: '../layouts/GlobalLayout',
+      routes: [{ path: '/share', component: '../pages/shareSetting/shareSetting', exact: true }],
+    },
+    {
+      path: '/babylist',
+      component: '../layouts/GlobalLayout',
+      routes: [{ path: '/babylist', component: '../pages/babyList/babyList', exact: true }],
+    },
+    {
+      path: '/create',
+      component: '../layouts/GlobalLayout',
+      routes: [{ path: '/create', component: '../pages/createBaby/createBaby', exact: true }],
+    },
+    {
+      path: '/edit/password',
       component: '../layouts/GlobalLayout',
       routes: [
-        { path: '/login', component: '../pages/login/Login', exact: true }
+        { path: '/edit/password', component: '../pages/editPassword/editPassword', exact: true },
       ],
+    },
+    {
+      path: '/edit',
+      component: '../layouts/GlobalLayout',
+      routes: [{ path: '/edit', component: '../pages/editUser/editUser', exact: true }],
+    },
+    {
+      path: '/instruction',
+      component: '../layouts/GlobalLayout',
+      routes: [
+        { path: '/instruction', component: '../pages/newInstuction/newInstuction', exact: true },
+      ],
+    },
+    {
+      path: '/confirm',
+      component: '../layouts/GlobalLayout',
+      routes: [{ path: '/confirm', component: '../pages/confirmEmail/confirmEmail', exact: true }],
+    },
+    {
+      path: '/forget',
+      component: '../layouts/GlobalLayout',
+      routes: [
+        { path: '/forget', component: '../pages/forgetPassword/forgetPassword', exact: true },
+      ],
+    },
+    {
+      path: '/signup',
+      component: '../layouts/GlobalLayout',
+      routes: [{ path: '/signup', component: '../pages/signUp/signUp', exact: true }],
+    },
+    {
+      path: '/login',
+      component: '../layouts/GlobalLayout',
+      routes: [{ path: '/login', component: '../pages/login/Login', exact: true }],
     },
     {
       path: '/',
       component: '../layouts/GlobalLayout',
-      routes: [
-        { path: '/', component: '../pages/index', exact: true }
-      ],
+      routes: [{ path: '/', component: '../pages/index/Index', exact: true }],
     },
   ],
 

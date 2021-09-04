@@ -3,11 +3,11 @@
 import React, { Component } from 'react';
 import withRouter from 'umi/withRouter';
 import { connect } from 'dva';
-import { Layout, Menu } from 'antd';
+import { Button, Layout, Menu } from 'antd';
 import './GlobalLayout.less';
 import images from '../theme/images';
 import { UserOutlined } from '@ant-design/icons';
-import { Link } from 'react-router-dom';
+import { Link } from 'dva/router';
 
 const { Header, Content, Footer } = Layout;
 
@@ -42,11 +42,15 @@ export default withRouter(
                 <Menu.Item key="logo">
                   <div className="logoBlock">
                     <img src={images.logo} className="logo"></img>
-                    <h3 className="title">Baby Journal</h3>
+                    <Link to="/">
+                      <h3 className="title">Baby Journal</h3>
+                    </Link>
                   </div>
                 </Menu.Item>
                 <Menu.Item key="babyList">
-                  <h4 className="navbarText">寶寶列表</h4>
+                  <Link to="/babyList">
+                    <h4 className="navbarText">寶寶列表</h4>
+                  </Link>
                 </Menu.Item>
                 <Menu.Item key="functionList">
                   <h4 className="navbarText">功能列表</h4>
@@ -55,7 +59,9 @@ export default withRouter(
                   <h4 className="navbarText">聯絡簿</h4>
                 </Menu.Item>
                 <Menu.Item key="noviceTeaching">
-                  <h4 className="navbarText">新手教學</h4>
+                  <Link to="/instruction">
+                    <h4 className="navbarText">新手教學</h4>
+                  </Link>
                 </Menu.Item>
                 <Menu.Item key="contactUs">
                   <h4 className="navbarText">聯繫我們</h4>
@@ -65,10 +71,15 @@ export default withRouter(
                 </Menu.Item>
                 <Menu.Item key="userIcon">
                   <h4 className="navbarText">
-                    <Link to="/login">
+                    <Link to="/edit">
                       <UserOutlined style={{ fontSize: '1.25rem' }} />
                     </Link>
                   </h4>
+                </Menu.Item>
+                <Menu.Item key="commonProblem">
+                  <Link to="/login">
+                    <Button type="primary">登入</Button>
+                  </Link>
                 </Menu.Item>
               </Menu>
             </Header>
